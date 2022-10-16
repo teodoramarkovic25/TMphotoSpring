@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pocetna</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">Početna <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item active">
+
+                    <a class="nav-link" th:href="${'services'}" >Ponuda </a>
+
+
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="onama.html">O nama </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link"href="nasiradovi.html"> Naši radovi </a>
+            </li>
+
+
+        </ul>
+    </div>
+
+
+    <form class="form-inline my-2 my-lg-0" th:action="@{/logout}" method="post">
+        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Odjava</button>
+    </form>
+</nav>
+
+
+<p>
+    Curabitur pulvinar venenatis dolor eget euismod. Curabitur tincidunt nisi in neque semper, vel malesuada
+    risus elementum. Nullam elit nulla, ullamcorper vel ultrices sit amet, fringilla sollicitudin tortor.
+    Proin ullamcorper, nibh nec gravida ornare, odio leo mattis enim, id maximus libero metus vel tellus.
+    Curabitur placerat efficitur orci id commodo. Nullam ultricies massa vel leo convallis viverra id eget
+    arcu. Curabitur porta feugiat libero.
+</p>
+
+<h2>
+    Curabitur pulvinar venenatis dolor
+</h2>
+
+<p>
+    Eget euismod. Curabitur tincidunt nisi in neque semper, vel malesuada risus elementum. Nullam elit
+    nulla, ullamcorper vel ultrices sit amet, fringilla sollicitudin tortor. Proin ullamcorper, nibh nec
+    gravida ornare, odio leo mattis enim, id maximus libero metus vel tellus. Curabitur placerat efficitur
+    orci id commodo. Nullam ultricies massa vel leo convallis viverra id eget arcu. Curabitur porta feugiat
+    libero.
+</p>
+
+<ul>
+    <li>Lorem ipsum dolor sit.</li>
+    <li>Lorem ipsum dolor sit.</li>
+    <li>Lorem ipsum dolor sit.</li>
+    <li>Lorem ipsum dolor sit.</li>
+</ul>
+</body>
+</html>

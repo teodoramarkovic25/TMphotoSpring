@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Zakazivanje termina</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">Početna <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="services.html">Ponuda</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="onama.html">O nama </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="nasiradovi.html"> Naši radovi </a>
+            </li>
+        </ul>
+
+    </div>
+
+    <form class="form-inline my-2 my-lg-0" th:action="@{/logout}" method="post">
+        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Odjava</button>
+    </form>
+
+</nav>
+
+<div class="card">
+    <h3 class="card-header text-center font-weight-bold text-uppercase py-4">
+      Termini
+    </h3>
+    <div style="padding: 20px">
+
+        <form action="addReservation" method="post" class="row g-3 needs-validation" novalidate>
+            <div class="col-md-4">
+                <div class="form-outline">
+                    <label class="form-label" for="name">Ime paketa</label>
+                    <input type="text" id="name"
+                           class="form-control" name="celebrationName"
+                           id="reservationName"
+                           value=""/>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-outline">
+                    <label class="form-label" for="celebrationDate">Datum rezervacije</label>
+                    <input type="date"
+                           id="celebrationDate"
+                           class="form-control" name="dateReservation"
+                           value=""/>
+                </div>
+            </div>
+
+            <div class="col-8" style="padding: 20px;">
+                <button class="btn btn-primary" type="submit">Dodajte termin
+                </button>
+                <button class="btn btn-link" type="button"
+                        onclick="location.href = '${index}';">Vraćanje na početnu
+                </button>
+            </div>
+        </form>
+        <div class="card-body" style="padding: 20px;">
+            <div id="table" class="table-editable">
+                    <span class="table-add float-right mb-3 mr-2">
+                        <a href="#!" class="text-success"><i class="fas fa-plus fa-2x" aria-hidden="true"></i></a>
+                    </span>
+                <table class="table table-bordered table-responsive-md table-striped text-center">
+                    <thead>
+                    <tr>
+                        <th class="text-center">Ime paketa</th>
+                        <th class="text-center">Datum termina</th>
+                        <th class="text-center">Vlasnik termina</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <%
+                    for (Reservation reservation : reservations) {
+                    %>
+                    <tr>
+                        <td class="pt-3-half" contenteditable="true"><%=reservation.getName()%>
+                        </td>
+                        <td class="pt-3-half" contenteditable="true"><%=reservation.getCelebrationDate()%>
+                        </td>
+                        <td class="pt-3-half" contenteditable="true"><%=reservation.getUserCreator()%>
+                        </td>
+                    </tr>
+                    <%}%>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        </div>
+</div>
+
+
+</body>
+</html>
